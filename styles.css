@@ -1,0 +1,546 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply text-base text-text font-medium bg-body font-text;
+}
+
+.spad {
+    @apply py-20 md:py-28;
+}
+
+.main {
+    @apply overflow-hidden;
+}
+
+/** SHAPE **/
+
+.shape {
+    @apply bg-shape blur-[112px] rounded-full;
+}
+
+.shape-small {
+    @apply h-44 lg:h-48 w-44 lg:w-48 blur-3xl absolute -top-10 -left-10;
+}
+
+.shape-big {
+    @apply w-[400px] lg:w-[500px] h-[400px] lg:h-[500px];
+}
+
+/** TITLE **/
+
+.title h2 {
+    @apply relative text-xl pl-5 mb-10 text-title;
+}
+
+.title h2::before {
+    @apply content-[""] absolute top-0 left-0 w-[4px] h-6 bg-primary;
+}
+
+/** BUTTON **/
+
+.button {
+    @apply inline-block bg-primary text-white py-4 px-8 rounded text-base transition-3s hover:bg-alt;
+}
+
+/** LOGO **/
+
+.logo {
+    @apply inline-flex items-center gap-x-2 text-title hover:text-primary transition-3s;
+}
+
+.logo i {
+    @apply text-xl text-primary;
+}
+
+/** HEADER **/
+
+.header {
+    @apply fixed top-0 left-0 w-full bg-transparent z-10;
+}
+
+.nav {
+    @apply h-12 flex justify-between items-center md:h-16;
+}
+
+.nav-toggle {
+    @apply text-2xl inline-flex text-title cursor-pointer md:hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .nav-menu {
+        @apply fixed top-0 -right-full w-full h-full bg-container backdrop-blur-[96px] transition-3s;
+    }
+}
+
+.nav-list {
+    @apply flex flex-col md:flex-row text-center gap-y-12 pt-28 md:pt-0 md:gap-x-12;
+}
+
+.nav-link {
+    @apply capitalize text-title text-xl md:text-base font-medium transition-3s hover:text-primary;
+}
+
+.nav-close {
+    @apply md:hidden absolute top-4 right-8 text-2xl text-white cursor-pointer;
+}
+
+.show-menu {
+    @apply right-0;
+}
+
+.scroll-header {
+    @apply bg-container;
+}
+
+.active {
+    @apply text-primary;
+}
+
+/** HOME **/
+
+.home {
+    @apply relative overflow-hidden bg-home object-cover bg-cover bg-center bg-no-repeat;
+}
+
+.home-info {
+    @apply container pt-20 md:pt-36 text-center;
+}
+
+.home-info h1 {
+    @apply text-4xl mb-4 font-semibold text-white md:text-title;
+}
+
+.home-info h2 {
+    @apply text-xl mb-2;
+}
+
+.home-info .home-icon {
+    @apply inline-flex justify-center items-center gap-x-2 text-sm text-text;
+}
+
+.home-info .home-icon i {
+    @apply text-base text-primary;
+}
+
+.home-content {
+    @apply flex justify-center items-center gap-x-16 lg:gap-x-28 mb-8 mt-12;
+}
+
+.home-data {
+    @apply text-center;
+}
+
+.home-data h3 {
+    @apply text-sm text-secondary;
+}
+
+.home-data h2 {
+    @apply text-2xl font-semibold mb-1;
+}
+
+.home-data span {
+    @apply border-2 border-title rounded-full inline-flex h-8 lg:h-10 w-8 lg:w-10 p-1 lg:p-2 items-center justify-center mb-3;
+}
+
+.home-data span i {
+    @apply text-white text-sm lg:text-xl !important;
+}
+
+.home-button {
+    @apply relative border-2 border-start w-[70px] h-[70px] rounded-full flex justify-center items-center
+    justify-self-center font-semibold mb-8;
+}
+
+.home-button::before {
+    @apply content-[""] border-2 border-[#02D98A] w-[90px] h-[90px] absolute rounded-full shadow-start-one transition-3s cursor-pointer;
+}
+
+@layer components {
+    .home-button::before {
+        animation: button 3s infinite;
+    }
+}
+
+@keyframes button {
+    0% {
+        @apply shadow-start-one;
+    }
+    50% {
+        @apply shadow-start-two;
+    }
+}
+
+/** BRAND **/
+
+.brand-container {
+    @apply container grid grid-cols-03 md:grid-cols-3 lg:grid-cols-6 gap-20 justify-center items-center pb-8;
+}
+
+.brand-content {
+    @apply grid gap-y-6 opacity-40 transition-3s hover:opacity-100;
+}
+
+.brand-content img {
+    @apply w-10 justify-self-center;
+}
+
+.brand-content h3 {
+    @apply text-base text-title text-center;
+}
+
+/** FEATURED **/
+
+.featured {
+    @apply pt-6 pb-20 md:pb-16;
+}
+
+.featured-container {
+    @apply pt-4 pb-14 xl:pb-20 container;
+}
+
+.featured-card {
+    @apply relative w-[300px] bg-container rounded;
+}
+
+.featured-img {
+    @apply w-full h-[260px] relative overflow-hidden;
+}
+
+.featured-img img {
+    @apply w-full h-full block object-cover object-top rounded-tr rounded-tl transition-3s;
+}
+
+.featured-img .overlay {
+    @apply absolute top-0 w-full h-full bg-overlay flex items-center justify-evenly py-0 px-5;
+}
+
+.featured-price {
+    @apply absolute bottom-3 left-4 text-white;
+}
+
+.featured-score {
+    @apply absolute top-4 left-4 z-20 items-center gap-1 flex place-content-center w-24 h-8 rounded bg-score;
+}
+
+.featured-score h2 {
+    @apply text-white text-xl font-bold;
+}
+
+.featured-score span {
+    @apply text-title text-xs;
+}
+
+.featured-score i {
+    @apply text-start text-[1.3rem];
+}
+
+.featured-info {
+    @apply mt-6 px-4;
+}
+
+.featured-model {
+    @apply flex items-center gap-2 mb-4;
+}
+
+.featured-model img {
+    @apply w-7;
+}
+
+.featured-model h3 {
+    @apply text-sm;
+}
+
+.featured-info h1 {
+    @apply text-base text-white mb-4 hover:text-primary;
+}
+
+.featured-info p {
+    @apply text-sm mb-4;
+}
+
+.swiper-pagination-bullet {
+    @apply bg-text;
+}
+
+.swiper-pagination-bullet-active {
+    @apply bg-primary;
+}
+
+/** ABOUT **/
+
+.about-container {
+    @apply container grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-28 xl:gap-24 lg:items-center;
+}
+
+.about-group {
+    @apply relative sm:w-[450px] md:w-[350px] lg:w-[480px] xl:w-[550px] sm:justify-self-center;
+}
+
+.about-group img {
+    @apply w-[380px] lg:w-[480px] xl:w-[550px] rounded-lg;
+}
+
+.about-card {
+    @apply w-[200px] lg:w-[220px] absolute right-0 md:right-12 -bottom-10 bg-card backdrop-blur-lg py-4 px-3 text-center rounded-2xl;
+}
+
+.about-card h3 {
+    @apply text-xl text-white font-semibold mb-2 mt-4;
+}
+
+.about-card p {
+    @apply text-sm;
+}
+
+.about-info p {
+    @apply text-justify mb-8 lg:mb-12 lg:pr-16;
+}
+
+/** POPULAR **/
+
+.popular-container {
+    @apply container pb-14 lg:w-[875px] xl:w-full;
+}
+
+.popuplar-card {
+    @apply relative w-[238px] lg:w-[258px] pt-8  px-6 bg-container rounded mb-4 lg:mb-12 overflow-hidden;
+}
+
+.popuplar-card h1,
+.popuplar-card h3,
+.popuplar-card img {
+    @apply relative;
+}
+
+.popuplar-card h1 {
+    @apply text-xl mb-1 text-title;
+}
+
+.popuplar-card h2 {
+    @apply text-base font-normal;
+}
+
+.popuplar-card img {
+    @apply w-40 lg:w-44 pt-3 pl-6 pb-5 pr-0 transition-3s;
+}
+
+.popuplar-card:hover img {
+    @apply transform -translate-y-1;
+}
+
+.popular-info {
+    @apply grid grid-cols-2 gap-y-2 mb-8;
+}
+
+.popular-group {
+    @apply inline-flex items-center gap-x-2 text-sm text-white;
+}
+
+.popular-group i {
+    @apply text-base;
+}
+
+.popular-price {
+    @apply text-xl text-title mb-4;
+}
+
+.popular-btn {
+    @apply py-3 px-4 outline-none border-none absolute bottom-0 right-0 bg-primary text-black rounded-tl-xl rounded-br-xl cursor-pointer;
+}
+
+.popular-btn i {
+    @apply text-xl;
+}
+
+/** CARS **/
+
+.cars .title {
+    @apply pl-4 !m-0;
+}
+
+.car-container {
+    @apply container pt-8 xl:pb-20;
+}
+
+.car-filters {
+    @apply flex items-center justify-center gap-x-4;
+}
+
+.car-group {
+    @apply grid grid-cols-1 md:grid-cols-2 items-center container mb-16 mt-28;
+}
+
+.car-item {
+    @apply w-full h-12 border-none outline-none p-3 rounded bg-container inline-flex gap-x-2 items-center transition-3s hover:bg-card;
+}
+
+.car-item span {
+    @apply text-sm md:text-base text-title;
+}
+
+.car-content {
+    @apply grid grid-cols-[300px] sm:grid-cols-228 lg:grid-cols-248 gap-8 lg:gap-16 xl:gap-12 xl:grid-cols-252 justify-center pt-12 lg:pb-12 pb-20;
+}
+
+.car-card {
+    @apply relative bg-container pt-8 pl-8 pb-6 mb-4 rounded-xl;
+}
+
+.car-card .shape-small {
+    @apply absolute inset-0 m-auto;
+}
+
+.car-card h1 {
+    @apply text-xl md:text-2xl text-title mb-2 font-semibold;
+}
+
+.car-card h3 {
+    @apply text-sm md:text-base;
+}
+
+.car-card img {
+    @apply w-[200px] my-6 mx-0 transition-3s;
+}
+
+.car-card:hover img {
+    @apply transform -translate-x-1;
+}
+
+h3.car-price {
+    @apply text-xl text-title mb-4 font-semibold;
+}
+
+.car-btn {
+    @apply py-3 px-4 absolute right-0 bottom-0 rounded-tl-xl rounded-br-xl cursor-pointer transition-3s hover:bg-alt;
+}
+
+.car-btn i {
+    @apply text-xl;
+}
+
+.active-car {
+    @apply bg-card;
+}
+
+/** OFFER **/
+
+.offer {
+    @apply relative;
+}
+
+.offer-container {
+    @apply container grid grid-rows-224 sm:grid-rows-[initial] sm:grid-cols-5fr lg:grid-cols-2 lg:gap-x-20 lg:items-center gap-6 sm:justify-center;
+}
+
+.offer-bg {
+    @apply absolute top-0 left-0 w-full h-full object-cover object-center;
+}
+
+.offer-info,
+.offer-img {
+    @apply relative;
+}
+
+.offer-info {
+    @apply text-center lg:text-left sm:mb-16 lg:mb-0;
+}
+
+.offer-info h2 {
+    @apply text-2xl font-semibold text-white mb-8;
+}
+
+.offer-info p {
+    @apply mb-12 lg:pr-20;
+}
+
+.offer-img {
+    @apply absolute sm:relative max-w-[initial] w-[500px] bottom-8 sm:bottom-[initial] -right-20 sm:right-[initial];
+}
+
+/** FOOTER **/
+
+.footer {
+    @apply relative overflow-hidden pb-20 pt-28;
+}
+
+.footer .shape-small,
+.footer .shape-big {
+    @apply absolute;
+}
+
+.footer .shape-big {
+    @apply w-[300px] h-[300px] -left-48 top-24;
+}
+
+.footer .shape-small {
+    @apply -top-52 -bottom-24;
+}
+
+.footer-container {
+    @apply container relative grid md:grid-cols-2 lg:grid-cols-04 lg:justify-between gap-y-10;
+}
+
+.footer-logo {
+    @apply inline-flex text-xl items-center gap-x-2 lg:gap-x-3 text-title font-semibold mb-5 transition-3s hover:text-primary;
+}
+
+.footer-logo i {
+    @apply text-2xl lg:text-[2rem] font-medium text-primary;
+}
+
+.footer-title {
+    @apply text-xl font-semibold text-white mb-5;
+}
+
+.footer-links {
+    @apply flex flex-col gap-y-2;
+}
+
+.footer-links,
+.footer-social {
+    @apply text-text transition-3s;
+}
+
+.footer-links a,
+.footer-social a {
+    @apply hover:text-title;
+}
+
+.footer-social {
+    @apply flex gap-x-6;
+}
+
+.footer-social a {
+    @apply text-xl;
+}
+
+.footer-copy {
+    @apply block mt-20 text-center text-sm;
+}
+
+.footer-copy a {
+    @apply text-title hover:text-primary;
+}
+
+/** SCROLL BAR **/
+
+::-webkit-scrollbar {
+    @apply w-[.4rem] h-[.4rem] bg-scrollbar rounded-xl;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-scrollbar-thumb rounded-xl hover:bg-card;
+}
+
+/** SCROLLUP **/
+
+.scrollup {
+    @apply fixed right-4 -bottom-[30%] bg-card backdrop-blur-lg inline-flex items-center p-[.45rem] rounded text-xl text-white z-10 transition-3s
+    hover:transform hover:translate-y-1;
+}
+
+.show-scroll {
+    @apply bottom-12;
+}

@@ -1,0 +1,73 @@
+<!-- Features -->
+<section class="features spad">
+	<div class="features-container">
+        <div class="features-group">
+			<img src="./assets/img/features.png">
+
+				<div class="features-card card-1">
+					<h3>800</h3>
+					<p>Turbo <br> Chargin</p>
+				</div>
+
+			<div class="features-card card-2">
+					<h3>340</h3>
+					<p>Km <br> Range</p>
+			</div>
+
+			<div class="features-card card-3">
+					<h3>480</h3>
+					<p>Km <br> Travel</p>
+			</div>
+        </div>
+    </div>
+
+    <img src="./assets/img/map.svg" class="features-map">
+</section>
+
+<styles>
+/** FEATURES **/
+
+.features {
+    @apply overflow-hidden relative;
+}
+
+.features-container {
+    @apply container grid grid-cols-[285px] pt-8 justify-center gap-6;
+}
+
+.features-group {
+    @apply grid relative z-10;
+}
+
+.features-group img {
+    @apply w-[150px] lg:w-[200px] justify-self-center;
+}
+
+.features-card {
+    @apply w-[112px] lg:w-[128px] bg-card backdrop-blur-lg rounded-xl py-3 px-8 lg:px-12 text-center text-title absolute;
+}
+
+.card-1 {
+    @apply top-16 left-6 lg:-left-4;
+}
+
+.card-2 {
+    @apply top-32 right-4 lg:-right-8;
+}
+
+.card-3 {
+    @apply left-6 lg:-left-4 bottom-8 lg:bottom-28;
+}
+
+.featured-card h3 {
+    @apply text-xl font-semibold mb-2 text-title;
+}
+
+.features-card p {
+    @apply text-xs text-text;
+}
+
+.features-map {
+    @apply max-w-[initial] w-[450px] lg:w-[650px] absolute top-32 lg:top-12 sm:left-0 sm:right-0 -left-6 lg:-left-32 m-auto transform rotate-12;
+}
+</styles>
